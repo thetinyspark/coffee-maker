@@ -45,10 +45,10 @@ describe('Facade test suite',
     ()=>{
         // given 
         const model = container.resolve(DEFAULT_MODEL);
-        facade.registerView(DEFAULT_MODEL, model);
+        facade.registerModel(DEFAULT_MODEL, model);
 
         // when 
-        const result:IModel = facade.getView(DEFAULT_MODEL);
+        const result:IModel = facade.getModel(DEFAULT_MODEL);
 
         // then
         expect(result).toBe(model);
@@ -58,10 +58,10 @@ describe('Facade test suite',
     ()=>{
         // given 
         const service = container.resolve(DEFAULT_SERVICE);
-        facade.registerView(DEFAULT_SERVICE, service);
+        facade.registerService(DEFAULT_SERVICE, service);
 
         // when 
-        const result:IService = facade.getView(DEFAULT_SERVICE);
+        const result:IService = facade.getService(DEFAULT_SERVICE);
 
         // then
         expect(result).toBe(service);
