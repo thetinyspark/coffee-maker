@@ -1,4 +1,1 @@
-export default interface IModel{
-    setState(value:any):void;
-    getState():any;
-}
+export default interface IModel{}
