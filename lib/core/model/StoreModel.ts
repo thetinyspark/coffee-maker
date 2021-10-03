@@ -1,4 +1,3 @@
-import IModel from "./IModel";
 import IStoreModel from "./IStoreModel";
 
 export default abstract class StoreModel implements IStoreModel {
