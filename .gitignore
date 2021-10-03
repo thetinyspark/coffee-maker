@@ -1,6 +1,9 @@
 # Dependency directories
 node_modules/
 
+#coverage
+coverage/
+
 # output
 dist/
 
