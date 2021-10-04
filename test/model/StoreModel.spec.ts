@@ -1,7 +1,7 @@
 import IStoreModel from "../../lib/core/model/IStoreModel";
 import { container, DEFAULT_STORE } from "../utils/config.spec";
 
-describe('AbstractModel test suite', 
+describe('StoreModel test suite', 
 ()=>{
     const model:IStoreModel = container.resolve(DEFAULT_STORE); 
 

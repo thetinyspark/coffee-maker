@@ -1,6 +1,7 @@
 import IStoreModel from "./IStoreModel";
+import Model from "./Model";
 
-export default abstract class StoreModel implements IStoreModel {
+export default class StoreModel extends Model implements IStoreModel {
   private _state: any = null;
   private _old:any = null;
 
