@@ -16,5 +16,5 @@ describe('Model Test Suite',
     ()=>{     
         model.setFacade(facade);
         expect(model.getFacade()).toBe(facade);
-    })
+    });
 } )
