@@ -22,7 +22,7 @@ describe('Facade test suite',
 
         // when 
         facade.registerCommand("CHANGE_NAME_COMMAND", method);
-        facade.notify("CHANGE_NAME_COMMAND", character);
+        facade.sendNotification("CHANGE_NAME_COMMAND", character);
 
         // then 
         expect(character.name).toEqual("Arthur");

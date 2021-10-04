@@ -29,7 +29,9 @@
     "url": "https://github.com/thetinyspark/your-project-name/issues"
   },
   "homepage": "https://github.com/thetinyspark/your-project-name#readme",
-  "dependencies": {},
+  "dependencies": {
+    "@thetinyspark/tiny-observer": "^1.0.1"
+  },
   "devDependencies": {
     "@types/jasmine": "^3.8.1",
     "@types/node": "^16.4.5",

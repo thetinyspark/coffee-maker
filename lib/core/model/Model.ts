@@ -7,6 +7,7 @@ export default class Model implements IModel{
     setFacade(facade: Facade): void {
         this._facade = facade;
     }
+
     getFacade(): Facade {
         return this._facade;
     }

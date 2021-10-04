@@ -1,3 +1,4 @@
+import { INotification } from "@thetinyspark/tiny-observer";
 import Facade from "../../../lib/core/Facade";
 import IView from "../../../lib/core/view/IView";
 import { container, DEFAULT_FACADE, DEFAULT_VIEW } from "../../utils/config.spec";
@@ -16,6 +17,4 @@ describe('View test suite', ()=>{
         view.setFacade(facade);
         expect(view.getFacade()).toBe(facade);
     });
-
-    
 })

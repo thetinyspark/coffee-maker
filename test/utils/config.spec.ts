@@ -5,15 +5,14 @@ import IService from "../../lib/core/service/IService";
 import View from "../../lib/core/view/View";
 import Model from "../../lib/core/model/Model";
 import Facade from "../../lib/core/Facade";
+import { INotification } from "@thetinyspark/tiny-observer";
 
 export const container = new Container(); 
 
-
-
 /** default classes */
 class ChangeNameCommand implements ICommand{
-    execute(character){
-        character.name = "Arthur";
+    execute(notification:INotification){
+        notification.getPayload().name = "Arthur";
     }
 }
 
