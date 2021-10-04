@@ -18,4 +18,47 @@ describe('Model Test Suite',
         model.setFacade(facade);
         expect(model.getFacade()).toBe(facade);
     });
+
+    it('should be able to define a state and retrieve it', 
+    ()=>{
+        // given 
+        const newState = {value:10};
+    
+        // when
+        model.setState({value:10}); 
+
+        // then 
+        expect(model.getState()).toEqual(newState);
+    });
+
+    it('should be able to reset state', 
+    ()=>{
+        // given 
+        const newState = {value:10};
+    
+        // when
+        model.setState({value:10}); 
+        model.resetState();
+
+        // then 
+        expect(model.getState()).toBeNull();
+    });
+
+    it('should return a null state by default', 
+    ()=>{
+        expect(model.getState()).toBeNull();
+    }); 
+
+    it('should be able to reset state', 
+    ()=>{
+        // given 
+        const newState = {value:10};
+    
+        // when
+        model.setState({value:10}); 
+        model.resetState();
+
+        // then 
+        expect(model.getState()).toBeNull();
+    });
 } )
