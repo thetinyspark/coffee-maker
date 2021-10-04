@@ -31,7 +31,7 @@ describe('Facade test suite',
     it('should be able to register view and retrieve it', 
     ()=>{
         // given 
-        const view = container.resolve(DEFAULT_VIEW);
+        const view:IView = container.resolve(DEFAULT_VIEW);
         facade.registerView(DEFAULT_VIEW, view);
 
         // when 
@@ -39,6 +39,19 @@ describe('Facade test suite',
 
         // then
         expect(result).toBe(view);
+    });
+
+    it('should set the facade of the registered view', 
+    ()=>{
+        // given 
+        const view:IView = container.resolve(DEFAULT_VIEW);
+        facade.registerView(DEFAULT_VIEW, view);
+
+        // when 
+        const result:IView = facade.getView(DEFAULT_VIEW);
+
+        // then
+        expect(result.getFacade()).toBe(facade);
     });
 
     it('should be able to register model and retrieve it', 
@@ -57,7 +70,7 @@ describe('Facade test suite',
     it('should set the facade of the registered model', 
     ()=>{
         // given 
-        const model = container.resolve(DEFAULT_MODEL);
+        const model:IModel = container.resolve(DEFAULT_MODEL);
         facade.registerModel(DEFAULT_MODEL, model);
 
         // when 

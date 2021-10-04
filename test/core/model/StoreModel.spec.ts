@@ -1,5 +1,5 @@
-import IStoreModel from "../../lib/core/model/IStoreModel";
-import { container, DEFAULT_STORE } from "../utils/config.spec";
+import IStoreModel from "../../../lib/core/model/IStoreModel";
+import { container, DEFAULT_STORE } from "../../utils/config.spec";
 
 describe('StoreModel test suite', 
 ()=>{

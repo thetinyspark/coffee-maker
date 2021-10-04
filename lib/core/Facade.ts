@@ -19,6 +19,7 @@ export default class Facade{
     }
 
     public registerView(key:string, view:IView):void{
+        view.setFacade(this);
         this._views.set(key, view);
     }
 
