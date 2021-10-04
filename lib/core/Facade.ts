@@ -2,15 +2,20 @@ import { ICommandFactoryMethod } from "./command/ICommand";
 import IModel from "./model/IModel";
 import IView from "./view/IView";
 import IService from "./service/IService";
+import { Emitter, INotification } from "@thetinyspark/tiny-observer";
 
-export default class Facade{
-    private _commands:Map<string,ICommandFactoryMethod>     = new Map<string,ICommandFactoryMethod>();
+export default class Facade extends Emitter{
     private _models:Map<string,IModel>                      = new Map<string,IModel>();
     private _views:Map<string,IView>                        = new Map<string,IView>();
     private _services:Map<string,IService>                  = new Map<string,IService>();
 
     public registerCommand(key:string, factoryMethod:ICommandFactoryMethod):void{
-        this._commands.set(key, factoryMethod);
+        this.subscribe(
+            key, 
+            (notification:INotification)=>{
+                factoryMethod.call(null).execute(notification);
+            }
+        );
     }
 
     public registerModel(key:string, model:IModel):void{
@@ -39,10 +44,7 @@ export default class Facade{
         return this._views.get(key) || null;
     }
 
-    public notify(key:string, payload:any = null):void{
-        const method = this._commands.get(key) || null; 
-        if( method !== null){
-            return method.call(null).execute(payload);
-        }
+    public sendNotification = (key:string, payload:any = null):void =>{
+        this.emit(key, payload);
     }
 }

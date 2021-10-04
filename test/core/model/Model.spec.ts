@@ -1,3 +1,4 @@
+import { INotification } from "@thetinyspark/tiny-observer";
 import Facade from "../../../lib/core/Facade";
 import IModel from "../../../lib/core/model/IModel";
 import { container, DEFAULT_FACADE, DEFAULT_MODEL } from "../../utils/config.spec"

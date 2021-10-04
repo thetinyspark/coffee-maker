@@ -1,5 +1,7 @@
+import { INotification } from "@thetinyspark/tiny-observer";
+
 export default interface ICommand{
-    execute(payload:any):void;
+    execute(notification:INotification):void;
 }
 
 export type ICommandFactoryMethod = (...args: any[]) => ICommand;
