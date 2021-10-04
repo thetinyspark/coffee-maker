@@ -14,6 +14,7 @@ export default class Facade{
     }
 
     public registerModel(key:string, model:IModel):void{
+        model.setFacade(this);
         this._models.set(key, model);
     }
 
