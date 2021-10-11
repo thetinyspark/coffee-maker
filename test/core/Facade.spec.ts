@@ -1,9 +1,10 @@
 import Facade from "../../lib/core/Facade";
 import { ICommandFactoryMethod } from "../../lib/core/command/ICommand";
-import { CHANGE_NAME_COMMAND, container, DEFAULT_FACADE, DEFAULT_MEDIATOR, DEFAULT_MODEL, DEFAULT_SERVICE } from "../utils/config.spec";
+import { CHANGE_NAME_COMMAND, container, DEFAULT_FACADE, DEFAULT_MEDIATOR, DEFAULT_PROXY, DEFAULT_SERVICE } from "../utils/config.spec";
 import IMediator from "../../lib/core/view/IMediator";
 import IModel from "../../lib/core/model/IModel";
 import IService from "../../lib/core/service/IService";
+import IProxy from "../../lib/core/model/IProxy";
 
 describe('Facade test suite', 
 ()=>{
@@ -28,24 +29,24 @@ describe('Facade test suite',
         expect(character.name).toEqual("Arthur");
     });
 
-    it('should be able to register view and retrieve it', 
+    it('should be able to register mediator and retrieve it', 
     ()=>{
         // given 
-        const view:IMediator = container.resolve(DEFAULT_MEDIATOR);
-        facade.registerMediator(DEFAULT_MEDIATOR, view);
+        const mediator:IMediator = container.resolve(DEFAULT_MEDIATOR);
+        facade.registerMediator(DEFAULT_MEDIATOR, mediator);
 
         // when 
         const result:IMediator = facade.getMediator(DEFAULT_MEDIATOR);
 
         // then
-        expect(result).toBe(view);
+        expect(result).toBe(mediator);
     });
 
-    it('should set the facade of the registered view', 
+    it('should set the facade of the registered mediator', 
     ()=>{
         // given 
-        const view:IMediator = container.resolve(DEFAULT_MEDIATOR);
-        facade.registerMediator(DEFAULT_MEDIATOR, view);
+        const mediator:IMediator = container.resolve(DEFAULT_MEDIATOR);
+        facade.registerMediator(DEFAULT_MEDIATOR, mediator);
 
         // when 
         const result:IMediator = facade.getMediator(DEFAULT_MEDIATOR);
@@ -54,27 +55,27 @@ describe('Facade test suite',
         expect(result.getFacade()).toBe(facade);
     });
 
-    it('should be able to register model and retrieve it', 
+    it('should be able to register proxy and retrieve it', 
     ()=>{
         // given 
-        const model = container.resolve(DEFAULT_MODEL);
-        facade.registerModel(DEFAULT_MODEL, model);
+        const model = container.resolve(DEFAULT_PROXY);
+        facade.registerProxy(DEFAULT_PROXY, model);
 
         // when 
-        const result:IModel = facade.getModel(DEFAULT_MODEL);
+        const result:IProxy = facade.getProxy(DEFAULT_PROXY);
 
         // then
         expect(result).toBe(model);
     });
 
-    it('should set the facade of the registered model', 
+    it('should set the facade of the registered proxy', 
     ()=>{
         // given 
-        const model:IModel = container.resolve(DEFAULT_MODEL);
-        facade.registerModel(DEFAULT_MODEL, model);
+        const proxy:IProxy = container.resolve(DEFAULT_PROXY);
+        facade.registerProxy(DEFAULT_PROXY, proxy);
 
         // when 
-        const result:IModel = facade.getModel(DEFAULT_MODEL);
+        const result:IProxy = facade.getProxy(DEFAULT_PROXY);
 
         // then
         expect(result.getFacade()).toBe(facade);

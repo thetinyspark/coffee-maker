@@ -1,11 +1,9 @@
-import Facade from "../../../lib/core/Facade";
 import IModel from "../../../lib/core/model/IModel";
-import { container, DEFAULT_FACADE, DEFAULT_MODEL } from "../../utils/config.spec"
+import { container, DEFAULT_MODEL } from "../../utils/config.spec"
 
 describe('Model Test Suite', 
 ()=>{
     const model:IModel = container.resolve(DEFAULT_MODEL);
-    const facade:Facade = container.resolve(DEFAULT_FACADE);
 
     beforeEach(
         ()=>{
@@ -17,12 +15,6 @@ describe('Model Test Suite',
     ()=>{
         expect(model).toBeTruthy();
     }); 
-
-    it('should be able to set/get Facade', 
-    ()=>{     
-        model.setFacade(facade);
-        expect(model.getFacade()).toBe(facade);
-    });
 
     it('should be able to define a state and retrieve it', 
     ()=>{

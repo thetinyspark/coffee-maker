@@ -1,12 +1,12 @@
 import { ICommandFactoryMethod } from "./command/ICommand";
-import IModel from "./model/IModel";
+import IProxy from "./model/IProxy";
 import IMediator from "./view/IMediator";
 import IService from "./service/IService";
 import { Emitter, INotification } from "@thetinyspark/tiny-observer";
 
 export default class Facade extends Emitter{
-    private _models:Map<string,IModel>                      = new Map<string,IModel>();
-    private _views:Map<string,IMediator>                        = new Map<string,IMediator>();
+    private _proxies:Map<string,IProxy>                     = new Map<string,IProxy>();
+    private _mediators:Map<string,IMediator>                = new Map<string,IMediator>();
     private _services:Map<string,IService>                  = new Map<string,IService>();
 
     public registerCommand(key:string, factoryMethod:ICommandFactoryMethod):void{
@@ -18,14 +18,14 @@ export default class Facade extends Emitter{
         );
     }
 
-    public registerModel(key:string, model:IModel):void{
-        model.setFacade(this);
-        this._models.set(key, model);
+    public registerProxy(key:string, proxy:IProxy):void{
+        proxy.setFacade(this);
+        this._proxies.set(key, proxy);
     }
 
-    public registerMediator(key:string, view:IMediator):void{
-        view.setFacade(this);
-        this._views.set(key, view);
+    public registerMediator(key:string, mediator:IMediator):void{
+        mediator.setFacade(this);
+        this._mediators.set(key, mediator);
     }
 
     public registerService(key:string, service:IService):void{
@@ -36,12 +36,12 @@ export default class Facade extends Emitter{
         return this._services.get(key) || null;
     }
 
-    public getModel(key:string):IModel{
-        return this._models.get(key) || null;
+    public getProxy(key:string):IProxy{
+        return this._proxies.get(key) || null;
     }
 
     public getMediator(key:string):IMediator{
-        return this._views.get(key) || null;
+        return this._mediators.get(key) || null;
     }
 
     public sendNotification = (key:string, payload:any = null):void =>{
