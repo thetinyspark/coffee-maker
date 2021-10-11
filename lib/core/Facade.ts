@@ -1,12 +1,12 @@
 import { ICommandFactoryMethod } from "./command/ICommand";
 import IModel from "./model/IModel";
-import IView from "./view/IView";
+import IMediator from "./view/IMediator";
 import IService from "./service/IService";
 import { Emitter, INotification } from "@thetinyspark/tiny-observer";
 
 export default class Facade extends Emitter{
     private _models:Map<string,IModel>                      = new Map<string,IModel>();
-    private _views:Map<string,IView>                        = new Map<string,IView>();
+    private _views:Map<string,IMediator>                        = new Map<string,IMediator>();
     private _services:Map<string,IService>                  = new Map<string,IService>();
 
     public registerCommand(key:string, factoryMethod:ICommandFactoryMethod):void{
@@ -23,7 +23,7 @@ export default class Facade extends Emitter{
         this._models.set(key, model);
     }
 
-    public registerView(key:string, view:IView):void{
+    public registerMediator(key:string, view:IMediator):void{
         view.setFacade(this);
         this._views.set(key, view);
     }
@@ -40,7 +40,7 @@ export default class Facade extends Emitter{
         return this._models.get(key) || null;
     }
 
-    public getView(key:string):IView{
+    public getMediator(key:string):IMediator{
         return this._views.get(key) || null;
     }
 

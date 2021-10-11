@@ -1,7 +1,7 @@
 import Facade from "../../lib/core/Facade";
 import { ICommandFactoryMethod } from "../../lib/core/command/ICommand";
-import { CHANGE_NAME_COMMAND, container, DEFAULT_FACADE, DEFAULT_MODEL, DEFAULT_SERVICE, DEFAULT_VIEW } from "../utils/config.spec";
-import IView from "../../lib/core/view/IView";
+import { CHANGE_NAME_COMMAND, container, DEFAULT_FACADE, DEFAULT_MEDIATOR, DEFAULT_MODEL, DEFAULT_SERVICE } from "../utils/config.spec";
+import IMediator from "../../lib/core/view/IMediator";
 import IModel from "../../lib/core/model/IModel";
 import IService from "../../lib/core/service/IService";
 
@@ -31,11 +31,11 @@ describe('Facade test suite',
     it('should be able to register view and retrieve it', 
     ()=>{
         // given 
-        const view:IView = container.resolve(DEFAULT_VIEW);
-        facade.registerView(DEFAULT_VIEW, view);
+        const view:IMediator = container.resolve(DEFAULT_MEDIATOR);
+        facade.registerMediator(DEFAULT_MEDIATOR, view);
 
         // when 
-        const result:IView = facade.getView(DEFAULT_VIEW);
+        const result:IMediator = facade.getMediator(DEFAULT_MEDIATOR);
 
         // then
         expect(result).toBe(view);
@@ -44,11 +44,11 @@ describe('Facade test suite',
     it('should set the facade of the registered view', 
     ()=>{
         // given 
-        const view:IView = container.resolve(DEFAULT_VIEW);
-        facade.registerView(DEFAULT_VIEW, view);
+        const view:IMediator = container.resolve(DEFAULT_MEDIATOR);
+        facade.registerMediator(DEFAULT_MEDIATOR, view);
 
         // when 
-        const result:IView = facade.getView(DEFAULT_VIEW);
+        const result:IMediator = facade.getMediator(DEFAULT_MEDIATOR);
 
         // then
         expect(result.getFacade()).toBe(facade);
