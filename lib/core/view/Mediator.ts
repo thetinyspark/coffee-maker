@@ -1,7 +1,7 @@
 import Facade from "../Facade";
-import IView from "./IView";
+import IMediator from "./IMediator";
 
-export default class View implements IView{
+export default class Mediator implements IMediator{
     private _facade:Facade|null = null;
 
     setFacade(facade: Facade): void {
