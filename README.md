@@ -1,4 +1,4 @@
-# Coffee maker, a tiny MVC oriented lib
+#  Coffee maker, a tiny MVC oriented lib
 
 This lib is inspired by PureMVC framework. 
 I just did some modifications and added a IoC Container. 
