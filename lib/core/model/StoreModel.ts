@@ -31,14 +31,6 @@ export default class StoreModel extends Model implements IStoreModel {
   }
 
   private deepFreeze(obj: any) {
-    const propNames = Object.getOwnPropertyNames(obj);
-
-    for (let name of propNames) {
-      let value = obj[name];
-      obj[name] =
-        value && typeof value === "object" ? this.deepFreeze(value) : value;
-    }
-
     return Object.freeze(obj);
   }
 }
