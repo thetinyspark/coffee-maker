@@ -29,6 +29,11 @@ export const DEFAULT_SERVICE = "MyService";
 export const DEFAULT_STORE = "MyStoreModel";
 export const DEFAULT_FACADE = "MyFacade";
 export const DEFAULT_PROXY = "MyProxy";
+export const INJECTED_SERVICE_TOKEN:string = 'MyInjectedService';
+
+@Injectable({token:INJECTED_SERVICE_TOKEN, container: container, singleton:true})
+@Injectable({token:INJECTED_SERVICE_TOKEN})
+class InjectedService implements IService{};
 
 container.register(CHANGE_NAME_COMMAND, ()=>new ChangeNameCommand()); 
 container.register(DEFAULT_PROXY, ()=>new Proxy());
