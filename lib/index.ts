@@ -1,6 +1,8 @@
 import ICommand from "./core/command/ICommand";
 import { ICommandFactoryMethod } from "./core/command/ICommand";
 import Container from "./core/ioc/Container";
+import Injectable from "./core/ioc/Injectable";
+import resolve from "./core/ioc/resolve";
 import IModel from "./core/model/IModel";
 import IProxy from "./core/model/IProxy";
 import IStoreModel from "./core/model/IStoreModel";
@@ -25,5 +27,7 @@ export {
     Proxy, 
     StoreModel, 
     Mediator, 
-    Facade
+    Facade, 
+    Injectable, 
+    resolve
 }
