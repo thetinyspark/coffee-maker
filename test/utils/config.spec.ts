@@ -1,14 +1,15 @@
 import ICommand from "../../lib/core/command/ICommand";
-import Container from "../../lib/core/ioc/Container";
+import Container, { rootContainer } from "../../lib/core/ioc/Container";
 import StoreModel from "../../lib/core/model/StoreModel";
 import IService from "../../lib/core/service/IService";
 import Mediator from "../../lib/core/view/Mediator";
 import Model from "../../lib/core/model/Model";
 import Proxy from "../../lib/core/model/Proxy";
 import Facade from "../../lib/core/Facade";
+import Injectable from '../../lib/core/ioc/Injectable';
 import { INotification } from "@thetinyspark/tiny-observer";
 
-export const container = new Container(); 
+export const container = new Container();
 
 /** default classes */
 class ChangeNameCommand implements ICommand{

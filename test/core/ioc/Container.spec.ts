@@ -1,9 +1,14 @@
-import Container from "../../../lib/core/ioc/Container";
+import Container, { rootContainer } from "../../../lib/core/ioc/Container";
 describe("IoC Container test suite", () => {
   const container = new Container();
   it("should be able to create an instance of Container", () => {
     expect(container).toBeTruthy();
   });
+
+  it("should have a default rootContainer", 
+  ()=>{
+    expect(rootContainer).toBeTruthy();
+  })
 
   describe("register / has / get test suite", () => {
     const method = ()=>{};
