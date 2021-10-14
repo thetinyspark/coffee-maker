@@ -36,3 +36,5 @@ export default class Container{
         return this._map.get(key)||null;
     }
 }
+
+export const rootContainer:Container = new Container();

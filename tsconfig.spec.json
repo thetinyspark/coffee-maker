@@ -2,6 +2,8 @@
   "include": ["lib", "test"],
   "exclude": ["lib/index.ts"],
   "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "target": "es2015",
     "module": "commonjs",
     "declaration": true,
