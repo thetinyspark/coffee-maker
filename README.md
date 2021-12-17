@@ -11,6 +11,7 @@ The available pattern in this lib are:
 - Mediator
 - Facade 
 - IoC Container
+- Module
 
 If you're comfortable with those patterns, it should be easy to use. 
 If not, then more documentation will comme very soon cause this package 
