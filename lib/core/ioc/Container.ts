@@ -1,5 +1,4 @@
 export default class Container{
-
     private _map:Map<string,Function>;
     private _singleton:Map<string,any>;
 

@@ -22,8 +22,8 @@ describe('Facade test suite',
         const method = container.get(CHANGE_NAME_COMMAND) as ICommandFactoryMethod; 
 
         // when 
-        facade.registerCommand("CHANGE_NAME_COMMAND", method);
-        facade.sendNotification("CHANGE_NAME_COMMAND", character);
+        facade.registerCommand(CHANGE_NAME_COMMAND, method);
+        facade.sendNotification(CHANGE_NAME_COMMAND, character);
 
         // then 
         expect(character.name).toEqual("Arthur");

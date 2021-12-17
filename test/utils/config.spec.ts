@@ -1,5 +1,5 @@
 import ICommand from "../../lib/core/command/ICommand";
-import Container, { rootContainer } from "../../lib/core/ioc/Container";
+import Container from "../../lib/core/ioc/Container";
 import StoreModel from "../../lib/core/model/StoreModel";
 import IService from "../../lib/core/service/IService";
 import Mediator from "../../lib/core/view/Mediator";
