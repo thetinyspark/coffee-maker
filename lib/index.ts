@@ -13,6 +13,8 @@ import IService from "./core/service/IService";
 import IMediator from "./core/view/IMediator";
 import Mediator from "./core/view/Mediator";
 import Facade from "./core/Facade";
+import CoffeeModule from "./core/module/CoffeeModule";
+import ICoffeeModule from "./core/module/ICoffeeModule";
 
 export {
     ICommand, 
@@ -28,6 +30,8 @@ export {
     StoreModel, 
     Mediator, 
     Facade, 
+    CoffeeModule,
+    ICoffeeModule,
     Injectable, 
-    resolve
+    resolve, 
 }
