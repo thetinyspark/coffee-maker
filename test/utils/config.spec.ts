@@ -17,11 +17,19 @@ class ChangeNameCommand implements ICommand{
         notification.getPayload().name = "Arthur";
     }
 }
+class GetRandomNumberQuery implements ICommand{
+    execute(notification:INotification){
+        const min:number = notification.getPayload().min || 0;
+        const max:number = notification.getPayload().max || 0;
+        return Math.round( Math.random() * ( max - min ) ) + min;
+    }
+}
 
 class MyService implements IService{}
 
 
 /** config */
+export const GET_RANDOM_NUMBER_QUERY = "GetRandomNumberQuery";
 export const CHANGE_NAME_COMMAND = "ChangeNameCommand";
 export const DEFAULT_MEDIATOR = "MyMediator";
 export const DEFAULT_MODEL = "MyModel";
@@ -35,6 +43,7 @@ export const INJECTED_SERVICE_TOKEN:string = 'MyInjectedService';
 @Injectable({token:INJECTED_SERVICE_TOKEN})
 class InjectedService implements IService{};
 
+container.register(GET_RANDOM_NUMBER_QUERY, ()=>new GetRandomNumberQuery()); 
 container.register(CHANGE_NAME_COMMAND, ()=>new ChangeNameCommand()); 
 container.register(DEFAULT_PROXY, ()=>new Proxy());
 container.register(DEFAULT_MEDIATOR, ()=>new Mediator());

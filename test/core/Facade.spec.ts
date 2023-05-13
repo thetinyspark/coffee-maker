@@ -1,6 +1,6 @@
 import Facade from "../../lib/core/Facade";
 import { ICommandFactoryMethod } from "../../lib/core/command/ICommand";
-import { CHANGE_NAME_COMMAND, container, DEFAULT_FACADE, DEFAULT_MEDIATOR, DEFAULT_PROXY, DEFAULT_SERVICE } from "../utils/config.spec";
+import { CHANGE_NAME_COMMAND, container, DEFAULT_FACADE, DEFAULT_MEDIATOR, DEFAULT_PROXY, DEFAULT_SERVICE, GET_RANDOM_NUMBER_QUERY } from "../utils/config.spec";
 import IMediator from "../../lib/core/view/IMediator";
 import IModel from "../../lib/core/model/IModel";
 import IService from "../../lib/core/service/IService";
@@ -14,6 +14,22 @@ describe('Facade test suite',
     ()=>{
         expect(facade).toBeTruthy();
     }); 
+
+    it('should be able to do a query', 
+    async ()=>{
+        // given 
+        const min = 5; 
+        const max = 10; 
+        const method = container.get(GET_RANDOM_NUMBER_QUERY) as ICommandFactoryMethod; 
+        facade.registerCommand(GET_RANDOM_NUMBER_QUERY, method);
+
+        // when 
+        const results = await facade.query(GET_RANDOM_NUMBER_QUERY, {min,max}); 
+
+        // then 
+        expect(results).toBeGreaterThanOrEqual(min);
+        expect(results).toBeLessThanOrEqual(max);
+    });
 
     it('should be able to register a command and trigger it', 
     ()=>{
