@@ -46,7 +46,7 @@ export default class Facade extends Emitter{
         return this._mediators.get(key) || null;
     }
 
-    public sendNotification = (key:string, payload:any = null):void =>{
+    public sendNotification = (key:string, payload:any = {}):void =>{
         this.emit(key, payload);
     };
 
