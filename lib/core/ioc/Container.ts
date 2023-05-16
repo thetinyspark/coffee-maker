@@ -10,8 +10,12 @@ export default class Container{
         if( !this._map.has(key))
             return null; 
         
-        if( this._singleton.has(key))
+        if( this._singleton.has(key)){
+            if( this._singleton.get(key) === null ){
+                this._singleton.set(key, this._map.get(key).call(null));
+            }
             return this._singleton.get(key); 
+        }
         
         return this._map.get(key).call(null);
     }
@@ -28,7 +32,7 @@ export default class Container{
         this._map.set(key, factoryMethod);
         
         if( singleton )
-            this._singleton.set(key, factoryMethod());
+            this._singleton.set(key, null);
     }
 
     public get(key:string):Function|null{
