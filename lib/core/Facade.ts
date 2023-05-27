@@ -13,9 +13,7 @@ export default class Facade extends Emitter{
         this.subscribe(
             key, 
             (notification:INotification)=>{
-                const quid = notification.getPayload().quid || -1;
-                const result = factoryMethod.call(null).execute(notification);
-                this.emit("QueryCompleted_"+quid, result);
+                return factoryMethod.call(null).execute(notification);
             }
         );
     }
@@ -51,17 +49,13 @@ export default class Facade extends Emitter{
     };
 
     public query = (key:string, payload:any = {}):Promise<any> => {
-        payload.quid = Math.round(Math.random() * 10000);
-        const promise = new Promise( 
-            (resolve, reject)=>{
-                const onQueryComplete = (notification:INotification)=>{
-                    this.unsubscribe("QueryCompleted_"+payload.quid, onQueryComplete);
-                    resolve(notification.getPayload());
-                };
-                this.subscribe("QueryCompleted_"+payload.quid, onQueryComplete);
+        const promise = this.emit(key, payload, true) as Promise<any>;
+        return promise.then( 
+            (results:any[])=>{
+                if(results.length === 1)
+                    return results.shift();
+                return results;
             }
         );
-        this.sendNotification(key,payload);
-        return promise;
     };
 }
