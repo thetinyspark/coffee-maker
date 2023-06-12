@@ -42,6 +42,12 @@ describe("IoC Container test suite", () => {
   });
 
   describe("resolve test suite", () => {
+
+    it("should resolve null it not registered", 
+    ()=>{
+      expect(container.resolve("unknown")).toBeNull();
+    })
+
     const dataTest = [
       {
         key: "dummy",

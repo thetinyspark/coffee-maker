@@ -65,6 +65,18 @@ describe('Model Test Suite',
         expect(facade.getMediator(DEFAULT_MEDIATOR)).toBe(mediator);
     });
 
+    it('should abort loading if configuration is null', 
+    ()=>{
+        // given
+        const facade:Facade = container.resolve(DEFAULT_FACADE);
+        const myModule = new CoffeeModule();
+        // when
+        myModule.load(facade);
+
+        // then
+        expect(facade.getMediator(DEFAULT_MEDIATOR)).toBeNull();
+    });
+
     it('should be able to configure a module and retrieve service', 
     ()=>{
         // given
