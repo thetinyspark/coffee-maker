@@ -1,0 +1,21 @@
+{
+  "include": [
+    "tools/cli"
+  ],
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "target": "es2020",
+    "module": "commonjs",
+    "declaration": true,
+    "outDir": "./tools/bin",
+    "strict": false,
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "types": [
+      "jasmine",
+      "node"
+    ]
+  }
+}

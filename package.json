@@ -4,17 +4,20 @@
   "description": "A tiny MVC oriented library",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "bin": {
+    "coffee-maker": "tools/bin/coffee-maker.js"
+  },
   "files": [
     "/dist"
   ],
   "scripts": {
     "pub": "npm login && npm publish --access public",
     "build": "set NODE_OPTIONS=--openssl-legacy-provider && tsc && npx webpack --config webpack.config.js",
+    "build:tools": "tsc --project tsconfig.tools.json",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "doc": "typedoc",
-    "coffee": "ts-node tools/cli/coffee-maker.ts"
+    "doc": "typedoc"
   },
   "repository": {
     "type": "git",
