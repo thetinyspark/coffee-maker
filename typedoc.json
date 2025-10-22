@@ -1,5 +1,11 @@
 {
     "entryPoints": ["./lib/index.ts"],
-    "out": "docs", 
-    "theme": "./node_modules/typedoc-theme-dark/dist/dark/"
-  }
+    "out": "docs",
+    "excludePrivate": true,
+    "excludeProtected": true,
+    "excludeExternals": true,
+    "includeVersion": true,
+    "categorizeByGroup": true,
+    "categoryOrder": ["Core", "IoC", "Model", "View", "Command", "*"],
+    "readme": "README.md"
+}

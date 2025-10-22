@@ -1,0 +1,18 @@
+import { Model } from "@thetinyspark/coffee-maker";
+
+export class <%= className %> extends Model {
+    constructor() {
+        super();
+    }
+
+    // Add your model methods here
+    // Example:
+    // getData(): any {
+    //     return this.data;
+    // }
+    //
+    // setData(data: any): void {
+    //     this.data = data;
+    //     this.notify();
+    // }
+}

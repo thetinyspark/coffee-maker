@@ -1,0 +1,16 @@
+/**
+ * Application Events Configuration
+ * This file contains all application events used in the project.
+ * DO NOT MODIFY THIS FILE MANUALLY - Use CLI tools instead.
+ */
+export const AppEvents = {
+    // Example events
+    USER: {
+        CREATED: "USER_CREATED",
+        UPDATED: "USER_UPDATED",
+        DELETED: "USER_DELETED"
+    }
+} as const;
+
+// Type for type-safety when using events
+export type AppEvent = typeof AppEvents[keyof typeof AppEvents][keyof typeof AppEvents[keyof typeof AppEvents]];

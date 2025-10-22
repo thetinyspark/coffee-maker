@@ -1,0 +1,13 @@
+import { Injectable } from "@thetinyspark/coffee-maker";
+
+@Injectable()
+export class <%= className %> {
+    constructor() {}
+
+    // Add your service methods here
+    // Example:
+    // async fetchUserData(): Promise<any> {
+    //     // Implement your service logic
+    //     return {};
+    // }
+}

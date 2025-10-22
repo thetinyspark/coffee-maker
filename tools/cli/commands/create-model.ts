@@ -1,0 +1,30 @@
+import * as fs from 'fs-extra';
+import * as path from 'path';
+import * as ejs from 'ejs';
+
+export async function createModel(name: string) {
+    try {
+        // Convert name to PascalCase for class name
+        const className = `${name.charAt(0).toUpperCase()}${name.slice(1)}Model`;
+        
+        // Read model template
+        const templatePath = path.resolve(__dirname, '../templates/model.ts.template');
+        const template = await fs.readFile(templatePath, 'utf-8');
+        
+        // Generate model file content
+        const content = ejs.render(template, { className }, {});
+        
+        // Create models directory if it doesn't exist
+        const modelsDir = path.resolve(process.cwd(), 'src/models');
+        await fs.ensureDir(modelsDir);
+        
+        // Write model file
+        const filePath = path.resolve(modelsDir, `${className}.ts`);
+        await fs.writeFile(filePath, content);
+        
+        console.log(`Created model ${className}`);
+    } catch (error) {
+        console.error('Error creating model:', error);
+        process.exit(1);
+    }
+}

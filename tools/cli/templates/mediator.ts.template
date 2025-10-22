@@ -1,0 +1,39 @@
+import { IMediator } from "@thetinyspark/coffee-maker";
+import { Facade } from "@thetinyspark/coffee-maker";
+
+export class <%= className %> implements IMediator {
+    private facade: Facade;
+
+    constructor() {}
+
+    getFacade(): Facade {
+        return this.facade;
+    }
+
+    setFacade(facade: Facade): void {
+        this.facade = facade;
+    }
+
+    // Add methods to handle notifications here
+    // Example:
+    // handleUserCreated(data: any): void {
+    //     console.log('User created:', data);
+    // }
+
+    listNotificationInterests(): string[] {
+        return [
+            // Add your notification interests here
+            // Example: USER_CREATED
+        ];
+    }
+
+    handleNotification(notificationName: string, data: any): void {
+        // Add notification handling logic here
+        // Example:
+        // switch(notificationName) {
+        //     case USER_CREATED:
+        //         this.handleUserCreated(data);
+        //         break;
+        // }
+    }
+}

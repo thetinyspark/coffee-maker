@@ -1,0 +1,13 @@
+/**
+ * Application Events
+ * This file contains all events used in the application.
+ * DO NOT MODIFY THIS FILE MANUALLY - Use CLI tools instead.
+ */
+
+// Example events
+export const USER_CREATED = "USER_CREATED";
+export const USER_UPDATED = "USER_UPDATED";
+export const USER_DELETED = "USER_DELETED";
+
+// Add your events here using the CLI tool:
+// npm run coffee add-event [EVENT_NAME]

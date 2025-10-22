@@ -1,0 +1,52 @@
+import { IProxy } from "@thetinyspark/coffee-maker";
+import { Facade } from "@thetinyspark/coffee-maker";
+
+export class <%= className %> implements IProxy {
+    private facade: Facade;
+    private data: any;
+
+    constructor() {
+        this.data = {};
+    }
+
+    getFacade(): Facade {
+        return this.facade;
+    }
+
+    setFacade(facade: Facade): void {
+        this.facade = facade;
+    }
+
+    getData(): any {
+        return this.data;
+    }
+
+    setData(data: any): void {
+        this.data = data;
+    }
+
+    // Add methods to handle notifications here
+    // Example:
+    // handleUserCreated(data: any): void {
+    //     this.data = { ...this.data, ...data };
+    //     // Notify views that data has changed
+    //     this.facade.sendNotification('USER_DATA_CHANGED', this.data);
+    // }
+
+    listNotificationInterests(): string[] {
+        return [
+            // Add your notification interests here
+            // Example: USER_CREATED
+        ];
+    }
+
+    handleNotification(notificationName: string, data: any): void {
+        // Add notification handling logic here
+        // Example:
+        // switch(notificationName) {
+        //     case USER_CREATED:
+        //         this.handleUserCreated(data);
+        //         break;
+        // }
+    }
+}

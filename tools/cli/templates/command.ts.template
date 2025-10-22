@@ -1,0 +1,11 @@
+import { ICommand } from "@thetinyspark/coffee-maker";
+import { INotification } from "@thetinyspark/tiny-observer";
+
+export class <%= className %> implements ICommand {
+    constructor() {}
+
+    execute(notification: INotification): void {
+        // Add your command logic here
+        console.log(`${this.constructor.name} executed with data:`, notification.getData());
+    }
+}

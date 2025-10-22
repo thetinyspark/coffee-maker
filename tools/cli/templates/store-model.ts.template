@@ -1,0 +1,23 @@
+import { StoreModel } from "@thetinyspark/coffee-maker";
+
+export class <%= className %> extends StoreModel {
+    constructor() {
+        super();
+    }
+
+    // Add your store model methods here
+    // Example:
+    // addItem(item: any): void {
+    //     this.collection.push(item);
+    //     this.notify();
+    // }
+    //
+    // removeItem(index: number): void {
+    //     this.collection.splice(index, 1);
+    //     this.notify();
+    // }
+    //
+    // getItems(): any[] {
+    //     return [...this.collection];
+    // }
+}
