@@ -1,5 +1,5 @@
 import resolve from '../../../lib/core/ioc/resolve';
-import {container, INJECTED_SERVICE_TOKEN} from '../../utils/config.spec';
+import {container, INJECTED_SERVICE_TOKEN} from '../../utils/config';
 
 describe('resolve test suite', 
 ()=>{

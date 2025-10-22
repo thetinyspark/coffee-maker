@@ -1,6 +1,6 @@
 import Facade from "../../../lib/core/Facade";
 import IProxy from "../../../lib/core/model/IProxy";
-import { container, DEFAULT_FACADE, DEFAULT_PROXY } from "../../utils/config.spec"
+import { container, DEFAULT_FACADE, DEFAULT_PROXY } from "../../utils/config"
 
 describe('Proxy Test Suite', 
 ()=>{

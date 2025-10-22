@@ -1,5 +1,5 @@
 import IStoreModel from "../../../lib/core/model/IStoreModel";
-import { container, DEFAULT_STORE } from "../../utils/config.spec";
+import { container, DEFAULT_STORE } from "../../utils/config";
 
 describe('StoreModel test suite', 
 ()=>{
@@ -78,7 +78,7 @@ describe('StoreModel test suite',
         model.setState(state); 
 
         // then
-        expect(Object.isFrozen(model.getState())).toBeTrue();
+        expect(Object.isFrozen(model.getState())).toBe(true);
     }); 
 
     it('should be able to say if the state was updated or not', 
@@ -90,12 +90,12 @@ describe('StoreModel test suite',
         model.setState(state);
 
         // then 
-        expect(model.updated()).toBeTrue();
-        expect(model.updated()).toBeFalse();
-        
+        expect(model.updated()).toBe(true);
+        expect(model.updated()).toBe(false);
+
         model.setState(state);
-        expect(model.updated()).toBeTrue();
-        expect(model.updated()).toBeFalse();
+        expect(model.updated()).toBe(true);
+        expect(model.updated()).toBe(false);
     });
 
     it('should be able to retrieve the previous state', 

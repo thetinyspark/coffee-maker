@@ -1,6 +1,6 @@
 import Facade from "../../../lib/core/Facade";
 import IMediator from "../../../lib/core/view/IMediator";
-import { container, DEFAULT_FACADE, DEFAULT_MEDIATOR } from "../../utils/config.spec";
+import { container, DEFAULT_FACADE, DEFAULT_MEDIATOR } from "../../utils/config";
 
 describe('View test suite', ()=>{
     const mediator:IMediator = container.resolve(DEFAULT_MEDIATOR);

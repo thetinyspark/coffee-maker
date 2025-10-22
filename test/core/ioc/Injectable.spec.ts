@@ -1,5 +1,5 @@
 import { rootContainer } from "../../../lib/core/ioc/Container";
-import { container, INJECTED_SERVICE_TOKEN } from "../../utils/config.spec"
+import { container, INJECTED_SERVICE_TOKEN } from "../../utils/config"
 
 
 describe('Injectable test suite', 

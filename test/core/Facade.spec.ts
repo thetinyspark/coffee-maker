@@ -1,6 +1,6 @@
 import Facade from "../../lib/core/Facade";
 import { ICommandFactoryMethod } from "../../lib/core/command/ICommand";
-import { CHANGE_NAME_COMMAND, container, DEFAULT_FACADE, DEFAULT_MEDIATOR, DEFAULT_PROXY, DEFAULT_SERVICE, GET_RANDOM_NUMBER_QUERY } from "../utils/config.spec";
+import { CHANGE_NAME_COMMAND, container, DEFAULT_FACADE, DEFAULT_MEDIATOR, DEFAULT_PROXY, DEFAULT_SERVICE, GET_RANDOM_NUMBER_QUERY } from "../utils/config";
 import IMediator from "../../lib/core/view/IMediator";
 import IModel from "../../lib/core/model/IModel";
 import IService from "../../lib/core/service/IService";

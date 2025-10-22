@@ -1,7 +1,7 @@
 import { Facade, ICommandFactoryMethod, IMediator, IProxy, IService } from "../../../lib";
 import CoffeeModule from "../../../lib/core/module/CoffeeModule";
 import { ModuleConfiguration } from "../../../lib/core/module/ICoffeeModule";
-import { CHANGE_NAME_COMMAND, container, DEFAULT_FACADE, DEFAULT_MEDIATOR, DEFAULT_PROXY, DEFAULT_SERVICE } from "../../utils/config.spec";
+import { CHANGE_NAME_COMMAND, container, DEFAULT_FACADE, DEFAULT_MEDIATOR, DEFAULT_PROXY, DEFAULT_SERVICE } from "../../utils/config";
 
 describe('Model Test Suite', 
 ()=>{

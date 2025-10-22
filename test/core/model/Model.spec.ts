@@ -1,5 +1,5 @@
 import IModel from "../../../lib/core/model/IModel";
-import { container, DEFAULT_MODEL } from "../../utils/config.spec"
+import { container, DEFAULT_MODEL } from "../../utils/config"
 
 describe('Model Test Suite', 
 ()=>{
